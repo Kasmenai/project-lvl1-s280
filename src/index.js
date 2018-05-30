@@ -6,10 +6,11 @@ export default () => {
   return actual;
 };
 
+const roundsCount = 3;
 const getRandomNum = (min, max) => Math.round((Math.random() * (max - min)) + min);
 
-export const evenCheck = (name, acc) => {
-  if (acc > 2) {
+export const evenCheck = (name, currentRound) => {
+  if (currentRound === roundsCount) {
     console.log(`Congratulations, ${name}!`);
     return;
   }
@@ -19,7 +20,7 @@ export const evenCheck = (name, acc) => {
   const rightAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
   if (actualAnswer === rightAnswer) {
     console.log('Correct!');
-    evenCheck(name, acc + 1);
+    evenCheck(name, currentRound + 1);
   } else {
     console.log(`'${actualAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
     console.log(`Let's try again, ${name}!`);
