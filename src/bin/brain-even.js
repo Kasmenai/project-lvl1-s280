@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import evenCheck from '../evenCheck';
+import evenCheck from '../games/evenCheck';
+import { playGame } from '..';
 
-evenCheck();
+playGame(evenCheck);
