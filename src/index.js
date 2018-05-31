@@ -1,16 +1,10 @@
 import readlineSync from 'readline-sync';
 
-export default () => {
-  const actual = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${actual}!`);
-  return actual;
-};
-
 const getQuestion = func => func('getQuestion');
 const getAnswer = func => func('getAnswer');
 const roundsCount = 3;
 
-export const playGame = (gameDescription, answerQuestionGenerator) => {
+export default (gameDescription, answerQuestionGenerator) => {
   console.log('Welcome to the Brain Games!');
   console.log(gameDescription);
   const playerName = readlineSync.question('May I have your name? ');

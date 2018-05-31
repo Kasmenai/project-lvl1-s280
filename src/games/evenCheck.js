@@ -1,5 +1,5 @@
 import { getRandomNum, makeAnswerQuestionPair } from '../common';
-import { playGame } from '..';
+import playGame from '..';
 
 const isEven = num => num % 2 === 0;
 
