@@ -10,9 +10,8 @@ const getQuestion = func => func('getQuestion');
 const getAnswer = func => func('getAnswer');
 const roundsCount = 3;
 
-export const playGame = (game) => {
+export const playGame = (gameDescription, answerQuestionGenerator) => {
   console.log('Welcome to the Brain Games!');
-  const gameDescription = game('getDescription');
   console.log(gameDescription);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
@@ -22,7 +21,7 @@ export const playGame = (game) => {
       console.log(`Congratulations, ${playerName}!`);
       return;
     }
-    const newAnswerQuestionPair = game();
+    const newAnswerQuestionPair = answerQuestionGenerator();
     const question = getQuestion(newAnswerQuestionPair);
     const rightAnswer = getAnswer(newAnswerQuestionPair);
 

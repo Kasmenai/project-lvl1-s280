@@ -1,13 +1,16 @@
 import { getRandomNum, makeAnswerQuestionPair } from '../common';
+import { playGame } from '..';
 
 const isEven = num => num % 2 === 0;
 
-export default (msg) => {
-  if (msg === 'getDescription') {
-    return 'Answer "yes" if number even otherwise answer "no".';
-  }
-  const question = getRandomNum(1, 100);
-  const rightAnswer = isEven(question) ? 'yes' : 'no';
+export default () => {
+  const description = 'Answer "yes" if number even otherwise answer "no".';
 
-  return makeAnswerQuestionPair(`${question}`, rightAnswer);
+  const answerQuestionGenerator = () => {
+    const question = getRandomNum(1, 100);
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
+    return makeAnswerQuestionPair(`${question}`, rightAnswer);
+  };
+
+  playGame(description, answerQuestionGenerator);
 };

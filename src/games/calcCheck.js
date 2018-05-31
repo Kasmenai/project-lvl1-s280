@@ -1,4 +1,5 @@
 import { getRandomNum, makeAnswerQuestionPair } from '../common';
+import { playGame } from '..';
 
 const getRandomOperation = () => {
   switch (getRandomNum(0, 3)) {
@@ -26,15 +27,17 @@ const calcResult = (num1, operation, num2) => {
   }
 };
 
-export default (msg) => {
-  if (msg === 'getDescription') {
-    return 'What is the result of the expression?';
-  }
-  const firstNum = getRandomNum(1, 5);
-  const secondNum = getRandomNum(1, 10);
-  const operation = getRandomOperation();
-  const question = `${firstNum} ${operation} ${secondNum}`;
-  const rightAnswer = String(calcResult(firstNum, operation, secondNum));
+export default () => {
+  const description = 'What is the result of the expression?';
 
-  return makeAnswerQuestionPair(question, rightAnswer);
+  const answerQuestionGenerator = () => {
+    const firstNum = getRandomNum(1, 5);
+    const secondNum = getRandomNum(1, 10);
+    const operation = getRandomOperation();
+    const question = `${firstNum} ${operation} ${secondNum}`;
+    const rightAnswer = String(calcResult(firstNum, operation, secondNum));
+    return makeAnswerQuestionPair(question, rightAnswer);
+  };
+
+  playGame(description, answerQuestionGenerator);
 };
