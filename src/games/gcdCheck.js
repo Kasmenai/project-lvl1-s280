@@ -1,4 +1,5 @@
-import { getRandomNum, makeAnswerQuestionPair } from '../common';
+import { cons } from 'hexlet-pairs';
+import getRandomNum from '../common';
 import playGame from '..';
 
 const gcd = (a, b) => {
@@ -18,7 +19,7 @@ export default () => {
     const question = `${firstNum} ${secondNum}`;
     const rightAnswer = String(gcd(firstNum, secondNum));
 
-    return makeAnswerQuestionPair(`${question}`, rightAnswer);
+    return cons(`${question}`, rightAnswer);
   };
 
   playGame(description, answerQuestionGenerator);

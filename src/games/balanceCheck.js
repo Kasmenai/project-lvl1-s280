@@ -1,4 +1,5 @@
-import { getRandomNum, makeAnswerQuestionPair } from '../common';
+import { cons } from 'hexlet-pairs';
+import getRandomNum from '../common';
 import playGame from '..';
 
 const getMinValueInd = (str) => {
@@ -64,7 +65,7 @@ export default () => {
   const answerQuestionGenerator = () => {
     const question = getRandomNum(100, 10000);
     const rightAnswer = String(balance(question));
-    return makeAnswerQuestionPair(`${question}`, rightAnswer);
+    return cons(`${question}`, rightAnswer);
   };
 
   playGame(description, answerQuestionGenerator);

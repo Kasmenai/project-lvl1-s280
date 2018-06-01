@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
-const getQuestion = func => func('getQuestion');
-const getAnswer = func => func('getAnswer');
 const roundsCount = 3;
 
 export default (gameDescription, answerQuestionGenerator) => {
@@ -16,8 +15,8 @@ export default (gameDescription, answerQuestionGenerator) => {
       return;
     }
     const newAnswerQuestionPair = answerQuestionGenerator();
-    const question = getQuestion(newAnswerQuestionPair);
-    const rightAnswer = getAnswer(newAnswerQuestionPair);
+    const question = car(newAnswerQuestionPair);
+    const rightAnswer = cdr(newAnswerQuestionPair);
 
     console.log(`Question: ${question}`);
     const actualAnswer = readlineSync.question('Your answer: ');
