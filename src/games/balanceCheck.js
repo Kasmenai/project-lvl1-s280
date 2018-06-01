@@ -2,6 +2,8 @@ import { cons } from 'hexlet-pairs';
 import getRandomNum from '../common';
 import playGame from '..';
 
+const description = 'Balance the given number.';
+
 const getMinValueInd = (str) => {
   let index = 0;
   for (let i = 0; i < str.length; i += 1) {
@@ -58,15 +60,10 @@ const balance = (num) => {
   return balance(result);
 };
 
-
-export default () => {
-  const description = 'Balance the given number.';
-
-  const answerQuestionGenerator = () => {
-    const question = getRandomNum(100, 10000);
-    const rightAnswer = String(balance(question));
-    return cons(`${question}`, rightAnswer);
-  };
-
-  playGame(description, answerQuestionGenerator);
+const answerQuestionGenerator = () => {
+  const question = getRandomNum(100, 10000);
+  const rightAnswer = String(balance(question));
+  return cons(`${question}`, rightAnswer);
 };
+
+export default () => playGame(description, answerQuestionGenerator);
