@@ -5,20 +5,20 @@ import playGame from '..';
 const description = 'Is this number prime?';
 
 const isPrime = (num) => {
-  if (num === 0 || num === 1) {
-    return 'no';
+  if (num <= 1) {
+    return false;
   }
   for (let i = 2; i <= num / 2; i += 1) {
     if (num % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const answerQuestionGenerator = () => {
   const question = getRandomNum(0, 200);
-  const rightAnswer = isPrime(question);
+  const rightAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(`${question}`, rightAnswer);
 };
 
