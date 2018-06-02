@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import progressionCheck from '../games/progressionCheck';
+import progression from '../games/progression';
 
-progressionCheck();
+progression();
