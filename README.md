@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/Kasmenai/project-lvl1-s280.svg?branch=master)](https://travis-ci.org/Kasmenai/project-lvl1-s280)
 
 ## Description
+Brain games is a set of mini-games launched from the console.
 
   - brain-balance: Balance the given number
   - brain-calc: What is the result of the expression?
